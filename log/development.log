@@ -1,0 +1,585 @@
+  [4;36;1mSQL (0.000319)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000178)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.002220)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.002725)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.000436)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000591)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePeople (20081107020254)
+  [4;36;1mSQL (0.000132)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.001977)[0m   [0mCREATE TABLE "people" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) DEFAULT NULL NULL, "email" varchar(255) DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.001544)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20081107020254')[0m
+  [4;35;1mSQL (0.000253)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000314)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000134)[0m   [0mPRAGMA index_list("people")[0m
+
+
+Processing PeopleController#index (for 127.0.0.1 at 2008-11-06 21:05:05) [GET]
+  Session ID: 9ab140b5a9a7f30967c13bcdbedd16e4
+  Parameters: {"action"=>"index", "controller"=>"people"}
+  [4;36;1mPerson Load (0.000413)[0m   [0;1mSELECT * FROM "people" [0m
+Rendering template within layouts/people
+Rendering people/index
+Completed in 0.00764 (130 reqs/sec) | Rendering: 0.00290 (37%) | DB: 0.00041 (5%) | 200 OK [http://localhost/people]
+
+
+Processing PeopleController#new (for 127.0.0.1 at 2008-11-06 21:05:10) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--8caedd36a04f0c0372d2642399ca79ef483a8c86
+  Parameters: {"action"=>"new", "controller"=>"people"}
+Rendering template within layouts/people
+Rendering people/new
+Completed in 0.00809 (123 reqs/sec) | Rendering: 0.00339 (41%) | DB: 0.00000 (0%) | 200 OK [http://localhost/people/new]
+
+
+Processing PeopleController#create (for 127.0.0.1 at 2008-11-06 21:05:30) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2VkZjg5NWEyMTA5NWNjZTNmN2UwYTYzNDY4YzI5
+MDIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--77901c90c29b1e7f200a5961c53bdc118f66180b
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"f250a90f4896ed4226861b7a91553eb45c5f8424", "action"=>"create", "controller"=>"people", "person"=>{"name"=>"Todd Kaufman", "email"=>"toddkaufman@gmail.com"}}
+  [4;35;1mPerson Create (0.000577)[0m   [0mINSERT INTO "people" ("name", "updated_at", "email", "created_at") VALUES('Todd Kaufman', '2008-11-07 02:05:30', 'toddkaufman@gmail.com', '2008-11-07 02:05:30')[0m
+Redirected to http://localhost:3000/people/1
+Completed in 0.01146 (87 reqs/sec) | DB: 0.00058 (5%) | 302 Found [http://localhost/people]
+
+
+Processing PeopleController#show (for 127.0.0.1 at 2008-11-06 21:05:30) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2VkZjg5NWEyMTA5NWNjZTNmN2UwYTYzNDY4YzI5
+MDIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7BjoLbm90aWNlIiVQZXJzb24gd2FzIHN1Y2Nlc3NmdWxseSBjcmVhdGVk
+LgY6CkB1c2VkewY7B0Y=--aded169ce1892fa13d90519f01ba0481393a368f
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"people"}
+  [4;36;1mPerson Load (0.000175)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Rendering template within layouts/people
+Rendering people/show
+Completed in 0.00659 (151 reqs/sec) | Rendering: 0.00171 (25%) | DB: 0.00017 (2%) | 200 OK [http://localhost/people/1]
+
+
+Processing PeopleController#index (for 127.0.0.1 at 2008-11-13 19:31:11) [GET]
+  Session ID: 6995773dee8fa0cc9a15947d2bc8184c
+  Parameters: {"action"=>"index", "controller"=>"people"}
+  [4;35;1mPerson Load (0.000615)[0m   [0mSELECT * FROM "people" [0m
+Rendering template within layouts/people
+Rendering people/index
+Completed in 0.01255 (79 reqs/sec) | Rendering: 0.00434 (34%) | DB: 0.00062 (4%) | 200 OK [http://localhost/people]
+
+
+Processing PeopleController#edit (for 127.0.0.1 at 2008-11-13 19:31:14) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMDA3M2RlYmJlZTkyMGNkOGI3ZTEyZjVmYWIxZmI5
+YTQiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--82aa884d6a7d913391a98fd74237c9d641cbe8ee
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"people"}
+  [4;36;1mPerson Load (0.000173)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Rendering template within layouts/people
+Rendering people/edit
+Completed in 0.00767 (130 reqs/sec) | Rendering: 0.00292 (38%) | DB: 0.00017 (2%) | 200 OK [http://localhost/people/1/edit]
+
+
+Processing PeopleController#update (for 127.0.0.1 at 2008-11-13 19:31:19) [PUT]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMDA3M2RlYmJlZTkyMGNkOGI3ZTEyZjVmYWIxZmI5
+YTQiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--82aa884d6a7d913391a98fd74237c9d641cbe8ee
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"b8617ab553f3f4aceae65fa13f9aa7fcb9411c66", "_method"=>"put", "action"=>"update", "id"=>"1", "controller"=>"people", "person"=>{"name"=>"", "email"=>"toddkaufman@gmail.com"}}
+  [4;35;1mPerson Load (0.000175)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Rendering template within layouts/people
+Rendering people/edit
+Completed in 0.00759 (131 reqs/sec) | Rendering: 0.00152 (19%) | DB: 0.00017 (2%) | 200 OK [http://localhost/people/1]
+
+
+Processing PeopleController#index (for 127.0.0.1 at 2008-11-13 19:33:17) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMDA3M2RlYmJlZTkyMGNkOGI3ZTEyZjVmYWIxZmI5
+YTQiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--82aa884d6a7d913391a98fd74237c9d641cbe8ee
+  Parameters: {"action"=>"index", "controller"=>"people"}
+  [4;36;1mPerson Load (0.000497)[0m   [0;1mSELECT * FROM "people" [0m
+Rendering template within layouts/people
+Rendering people/index
+Completed in 0.00873 (114 reqs/sec) | Rendering: 0.00329 (37%) | DB: 0.00050 (5%) | 200 OK [http://localhost/people]
+
+
+Processing PeopleController#new (for 127.0.0.1 at 2008-11-13 19:33:19) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMDA3M2RlYmJlZTkyMGNkOGI3ZTEyZjVmYWIxZmI5
+YTQiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--82aa884d6a7d913391a98fd74237c9d641cbe8ee
+  Parameters: {"action"=>"new", "controller"=>"people"}
+Rendering template within layouts/people
+Rendering people/new
+Completed in 0.00687 (145 reqs/sec) | Rendering: 0.00216 (31%) | DB: 0.00000 (0%) | 200 OK [http://localhost/people/new]
+
+
+Processing PeopleController#create (for 127.0.0.1 at 2008-11-13 19:33:29) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMDA3M2RlYmJlZTkyMGNkOGI3ZTEyZjVmYWIxZmI5
+YTQiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--82aa884d6a7d913391a98fd74237c9d641cbe8ee
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"b8617ab553f3f4aceae65fa13f9aa7fcb9411c66", "action"=>"create", "controller"=>"people", "person"=>{"name"=>"Tim Wingfield", "email"=>"toddkaufman@gmail.com"}}
+  [4;35;1mSQL (0.000176)[0m   [0mSELECT "email" FROM "people" WHERE ("people".email = 'toddkaufman@gmail.com') [0m
+Rendering template within layouts/people
+Rendering people/new
+Completed in 0.00771 (129 reqs/sec) | Rendering: 0.00152 (19%) | DB: 0.00018 (2%) | 200 OK [http://localhost/people]
+
+
+Processing PeopleController#index (for 127.0.0.1 at 2008-11-16 21:53:20) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMDA3M2RlYmJlZTkyMGNkOGI3ZTEyZjVmYWIxZmI5
+YTQiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--82aa884d6a7d913391a98fd74237c9d641cbe8ee
+  Parameters: {"action"=>"index", "controller"=>"people"}
+  [4;36;1mPerson Load (0.000823)[0m   [0;1mSELECT * FROM "people" [0m
+Rendering template within layouts/people
+Rendering people/index
+Completed in 0.02807 (35 reqs/sec) | Rendering: 0.00323 (11%) | DB: 0.00082 (2%) | 200 OK [http://localhost/people]
+  [4;36;1mSQL (0.000472)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000146)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreatePeople (20081107020254)
+  [4;36;1mSQL (0.000120)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to AddTestData (20081118211334)
+  [4;35;1mSQL (0.000118)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mPerson Delete all (0.003075)[0m   [0;1mDELETE FROM "people" WHERE 1=1[0m
+  [4;35;1mSQL (0.000172)[0m   [0mSELECT "email" FROM "people" WHERE ("people".email = 'toddkaufman@gmail.com') [0m
+  [4;36;1mPerson Create (0.000727)[0m   [0;1mINSERT INTO "people" ("name", "updated_at", "email", "created_at") VALUES('Todd Kaufman', '2008-11-18 21:15:56', 'toddkaufman@gmail.com', '2008-11-18 21:15:56')[0m
+  [4;35;1mSQL (0.000196)[0m   [0mSELECT "email" FROM "people" WHERE ("people".email = 'theted@dev.null') [0m
+  [4;36;1mPerson Create (0.000330)[0m   [0;1mINSERT INTO "people" ("name", "updated_at", "email", "created_at") VALUES('Ted Klosterman', '2008-11-18 21:15:56', 'theted@dev.null', '2008-11-18 21:15:56')[0m
+  [4;35;1mSQL (0.002870)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20081118211334')[0m
+  [4;36;1mSQL (0.000212)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000312)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000345)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000037)[0m   [0mPRAGMA index_list("people")[0m
+
+
+Processing PeopleController#show (for 127.0.0.1 at 2008-11-18 16:16:05) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMDA3M2RlYmJlZTkyMGNkOGI3ZTEyZjVmYWIxZmI5
+YTQiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--82aa884d6a7d913391a98fd74237c9d641cbe8ee
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"people"}
+  [4;35;1mPerson Load (0.000127)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+
+
+ActiveRecord::RecordNotFound (Couldn't find Person with ID=1):
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:1379:in `find_one'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:1362:in `find_from_ids'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:537:in `find'
+    /app/controllers/people_controller.rb:16:in `show'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.1.0/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing PeopleController#index (for 127.0.0.1 at 2008-11-18 16:16:19) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMDA3M2RlYmJlZTkyMGNkOGI3ZTEyZjVmYWIxZmI5
+YTQiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--82aa884d6a7d913391a98fd74237c9d641cbe8ee
+  Parameters: {"action"=>"index", "controller"=>"people"}
+  [4;36;1mPerson Load (0.000445)[0m   [0;1mSELECT * FROM "people" [0m
+Rendering template within layouts/people
+Rendering people/index
+Completed in 0.00981 (101 reqs/sec) | Rendering: 0.00395 (40%) | DB: 0.00044 (4%) | 200 OK [http://localhost/people]
+
+
+Processing PeopleController#show (for 127.0.0.1 at 2008-11-18 16:16:23) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlMDA3M2RlYmJlZTkyMGNkOGI3ZTEyZjVmYWIxZmI5
+YTQiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--82aa884d6a7d913391a98fd74237c9d641cbe8ee
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"people"}
+  [4;35;1mPerson Load (0.000170)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 2) [0m
+Rendering template within layouts/people
+Rendering people/show
+Completed in 0.00608 (164 reqs/sec) | Rendering: 0.00124 (20%) | DB: 0.00017 (2%) | 200 OK [http://localhost/people/2]
+  [4;36;1mSQL (0.000841)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000270)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000278)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreatePeople (20081107020254)
+  [4;35;1mSQL (0.000243)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddTestData (20081118211334)
+  [4;36;1mSQL (0.000236)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateTopics (20081124153341)
+  [4;35;1mSQL (0.000233)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000135)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.080742)[0m   [0mCREATE TABLE "topics" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255) DEFAULT NULL NULL, "description" text DEFAULT NULL NULL, "person_id" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;36;1mSQL (0.003106)[0m   [0;1mCREATE TABLE "votes" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "person_id" integer DEFAULT NULL NULL, "topic_id" integer DEFAULT NULL NULL, "created_at" datetime DEFAULT NULL NULL, "updated_at" datetime DEFAULT NULL NULL) [0m
+  [4;35;1mSQL (0.004318)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20081124153341')[0m
+  [4;36;1mSQL (0.000676)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000584)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.000097)[0m   [0;1mPRAGMA index_list("people")[0m
+  [4;35;1mSQL (0.000068)[0m   [0mPRAGMA index_list("topics")[0m
+  [4;36;1mSQL (0.000073)[0m   [0;1mPRAGMA index_list("votes")[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2008-11-24 13:48:40) [GET]
+  Session ID: 5c2325aee6d45a1818d288eb3c6560f3
+  Parameters: {}
+
+
+ActionController::RoutingError (No route matches "/topic" with {:method=>:get}):
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/recognition_optimisation.rb:67:in `recognize_path'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/routing/route_set.rb:384:in `recognize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:148:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.1.0/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing TopicsController#index (for 127.0.0.1 at 2008-11-24 13:48:47) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--8caedd36a04f0c0372d2642399ca79ef483a8c86
+  Parameters: {"action"=>"index", "controller"=>"topics"}
+  [4;36;1mTopic Load (0.015756)[0m   [0;1mSELECT * FROM "topics" [0m
+Rendering template within layouts/topics
+Rendering topics/index
+Completed in 0.04016 (24 reqs/sec) | Rendering: 0.01557 (38%) | DB: 0.01576 (39%) | 200 OK [http://localhost/topics]
+
+
+Processing TopicsController#new (for 127.0.0.1 at 2008-11-24 13:48:52) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--8caedd36a04f0c0372d2642399ca79ef483a8c86
+  Parameters: {"action"=>"new", "controller"=>"topics"}
+Rendering template within layouts/topics
+Rendering topics/new
+  [4;35;1mPerson Load (0.001014)[0m   [0mSELECT * FROM "people" ORDER BY name[0m
+
+
+ActionView::TemplateError (wrong number of arguments (0 for 1)) on line #17 of topics/new.html.erb:
+14:   <p>
+15: 	<%=
+16: 	  @people = Person.find(:all, :order => "name").map {|p| [p.name, p.id]}
+17: 	  form.select(:person_id, @people)
+18: 	%>
+19:   <p>
+20:     <%= f.submit "Create" %>
+
+    app/views/topics/new.html.erb:17:in `form'
+    app/views/topics/new.html.erb:17:in `_run_erb_47app47views47topics47new46html46erb'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/form_helper.rb:317:in `fields_for'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/form_helper.rb:253:in `form_for'
+    app/views/topics/new.html.erb:3:in `_run_erb_47app47views47topics47new46html46erb'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `execute'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:35:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:22:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `render_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1108:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:865:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:880:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:131:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:131:in `custom'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:160:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:160:in `respond'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:154:in `each'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:154:in `respond'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/topics_controller.rb:29:in `new'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /Library/Ruby/Gems/1.8/gems/rails-2.1.0/lib/commands/servers/mongrel.rb:64
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /Library/Ruby/Gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /Library/Ruby/Site/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing TopicsController#new (for 127.0.0.1 at 2008-11-24 13:50:19) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNTdhMzQwMTFhNDhiMmIyZmJjYjY3YzFkZTEwYjMx
+ZGMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--a5bdcbdeff5cf83a810944e2873123d750e6afa5
+  Parameters: {"action"=>"new", "controller"=>"topics"}
+Rendering template within layouts/topics
+Rendering topics/new
+  [4;36;1mPerson Load (0.000759)[0m   [0;1mSELECT * FROM "people" ORDER BY name[0m
+Completed in 0.01655 (60 reqs/sec) | Rendering: 0.01019 (61%) | DB: 0.00076 (4%) | 200 OK [http://localhost/topics/new]
+
+
+Processing TopicsController#new (for 127.0.0.1 at 2008-11-24 13:55:20) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNTdhMzQwMTFhNDhiMmIyZmJjYjY3YzFkZTEwYjMx
+ZGMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--a5bdcbdeff5cf83a810944e2873123d750e6afa5
+  Parameters: {"action"=>"new", "controller"=>"topics"}
+Rendering template within layouts/topics
+Rendering topics/new
+  [4;35;1mPerson Load (0.000737)[0m   [0mSELECT * FROM "people" ORDER BY name[0m
+Completed in 0.01445 (69 reqs/sec) | Rendering: 0.00832 (57%) | DB: 0.00074 (5%) | 200 OK [http://localhost/topics/new]
+
+
+Processing TopicsController#create (for 127.0.0.1 at 2008-11-24 13:56:25) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNTdhMzQwMTFhNDhiMmIyZmJjYjY3YzFkZTEwYjMx
+ZGMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--a5bdcbdeff5cf83a810944e2873123d750e6afa5
+  Parameters: {"commit"=>"Create", "topic"=>{"title"=>"RoR Kool Aid", "description"=>"Demo of how GrokIt was built in RoR", "person_id"=>"2"}, "authenticity_token"=>"3eb5a1bb881d4a754d4de2313a5eb10ed592ccd8", "action"=>"create", "controller"=>"topics"}
+  [4;36;1mTopic Create (0.000402)[0m   [0;1mINSERT INTO "topics" ("updated_at", "title", "description", "person_id", "created_at") VALUES('2008-11-24 18:56:25', 'RoR Kool Aid', 'Demo of how GrokIt was built in RoR', 2, '2008-11-24 18:56:25')[0m
+Redirected to http://localhost:3000/topics/1
+Completed in 0.01083 (92 reqs/sec) | DB: 0.00040 (3%) | 302 Found [http://localhost/topics]
+
+
+Processing TopicsController#show (for 127.0.0.1 at 2008-11-24 13:56:25) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNTdhMzQwMTFhNDhiMmIyZmJjYjY3YzFkZTEwYjMx
+ZGMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7BjoLbm90aWNlIiRUb3BpYyB3YXMgc3VjY2Vzc2Z1bGx5IGNyZWF0ZWQu
+BjoKQHVzZWR7BjsHRg==--10c67841eb99f1a0d16c4c79d394d2625f058a2e
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"topics"}
+  [4;35;1mTopic Load (0.000184)[0m   [0mSELECT * FROM "topics" WHERE ("topics"."id" = 1) [0m
+Rendering template within layouts/topics
+Rendering topics/show
+  [4;36;1mPerson Load (0.000198)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 2) [0m
+Completed in 0.01365 (73 reqs/sec) | Rendering: 0.00718 (52%) | DB: 0.00038 (2%) | 200 OK [http://localhost/topics/1]
+
+
+Processing TopicsController#index (for 127.0.0.1 at 2008-11-24 13:56:30) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNTdhMzQwMTFhNDhiMmIyZmJjYjY3YzFkZTEwYjMx
+ZGMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7BjoLbm90aWNlIiRUb3BpYyB3YXMgc3VjY2Vzc2Z1bGx5IGNyZWF0ZWQu
+BjoKQHVzZWR7BjsHVA==--55646fb639d0f406fc54c712787b57ba4718fa44
+  Parameters: {"action"=>"index", "controller"=>"topics"}
+  [4;35;1mTopic Load (0.000820)[0m   [0mSELECT * FROM "topics" [0m
+Rendering template within layouts/topics
+Rendering topics/index
+Completed in 0.00823 (121 reqs/sec) | Rendering: 0.00251 (30%) | DB: 0.00082 (9%) | 200 OK [http://localhost/topics]
+
+
+Processing TopicsController#show (for 127.0.0.1 at 2008-11-24 13:56:42) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNTdhMzQwMTFhNDhiMmIyZmJjYjY3YzFkZTEwYjMx
+ZGMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--a5bdcbdeff5cf83a810944e2873123d750e6afa5
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"topics"}
+  [4;36;1mTopic Load (0.000188)[0m   [0;1mSELECT * FROM "topics" WHERE ("topics"."id" = 1) [0m
+Rendering template within layouts/topics
+Rendering topics/show
+  [4;35;1mPerson Load (0.000175)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 2) [0m
+Completed in 0.01185 (84 reqs/sec) | Rendering: 0.00585 (49%) | DB: 0.00036 (3%) | 200 OK [http://localhost/topics/1]
+
+
+Processing TopicsController#show (for 127.0.0.1 at 2008-11-24 13:58:08) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNTdhMzQwMTFhNDhiMmIyZmJjYjY3YzFkZTEwYjMx
+ZGMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--a5bdcbdeff5cf83a810944e2873123d750e6afa5
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"topics"}
+  [4;36;1mTopic Load (0.000184)[0m   [0;1mSELECT * FROM "topics" WHERE ("topics"."id" = 1) [0m
+Rendering template within layouts/topics
+Rendering topics/show
+  [4;35;1mPerson Load (0.000179)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 2) [0m
+Completed in 0.01214 (82 reqs/sec) | Rendering: 0.00618 (50%) | DB: 0.00036 (2%) | 200 OK [http://localhost/topics/1]
+
+
+Processing TopicsController#index (for 127.0.0.1 at 2008-11-24 13:58:10) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNTdhMzQwMTFhNDhiMmIyZmJjYjY3YzFkZTEwYjMx
+ZGMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--a5bdcbdeff5cf83a810944e2873123d750e6afa5
+  Parameters: {"action"=>"index", "controller"=>"topics"}
+  [4;36;1mTopic Load (0.000443)[0m   [0;1mSELECT * FROM "topics" [0m
+Rendering template within layouts/topics
+Rendering topics/index
+  [4;35;1mPerson Load (0.000185)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 2) [0m
+Completed in 0.01288 (77 reqs/sec) | Rendering: 0.00742 (57%) | DB: 0.00063 (4%) | 200 OK [http://localhost/topics]
+
+
+Processing TopicsController#edit (for 127.0.0.1 at 2008-11-24 13:58:15) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNTdhMzQwMTFhNDhiMmIyZmJjYjY3YzFkZTEwYjMx
+ZGMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--a5bdcbdeff5cf83a810944e2873123d750e6afa5
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"topics"}
+  [4;36;1mTopic Load (0.000186)[0m   [0;1mSELECT * FROM "topics" WHERE ("topics"."id" = 1) [0m
+Rendering template within layouts/topics
+Rendering topics/edit
+  [4;35;1mPerson Load (0.000640)[0m   [0mSELECT * FROM "people" ORDER BY name[0m
+Completed in 0.01435 (69 reqs/sec) | Rendering: 0.00828 (57%) | DB: 0.00083 (5%) | 200 OK [http://localhost/topics/1/edit]
+
+
+Processing TopicsController#update (for 127.0.0.1 at 2008-11-24 13:58:19) [PUT]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNTdhMzQwMTFhNDhiMmIyZmJjYjY3YzFkZTEwYjMx
+ZGMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--a5bdcbdeff5cf83a810944e2873123d750e6afa5
+  Parameters: {"commit"=>"Update", "topic"=>{"title"=>"RoR Kool Aid", "description"=>"Demo of how GrokIt was built in RoR", "person_id"=>"3"}, "authenticity_token"=>"3eb5a1bb881d4a754d4de2313a5eb10ed592ccd8", "_method"=>"put", "action"=>"update", "id"=>"1", "controller"=>"topics"}
+  [4;36;1mTopic Load (0.000385)[0m   [0;1mSELECT * FROM "topics" WHERE ("topics"."id" = 1) [0m
+  [4;35;1mTopic Update (0.000378)[0m   [0mUPDATE "topics" SET "person_id" = 3, "updated_at" = '2008-11-24 18:58:19' WHERE "id" = 1[0m
+Redirected to http://localhost:3000/topics/1
+Completed in 0.01236 (80 reqs/sec) | DB: 0.00076 (6%) | 302 Found [http://localhost/topics/1]
+
+
+Processing TopicsController#show (for 127.0.0.1 at 2008-11-24 13:58:19) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNTdhMzQwMTFhNDhiMmIyZmJjYjY3YzFkZTEwYjMx
+ZGMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7BjoLbm90aWNlIiRUb3BpYyB3YXMgc3VjY2Vzc2Z1bGx5IHVwZGF0ZWQu
+BjoKQHVzZWR7BjsHRg==--6946763c32930b1134eb4afb0a992a2cd92d011b
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"topics"}
+  [4;36;1mTopic Load (0.000196)[0m   [0;1mSELECT * FROM "topics" WHERE ("topics"."id" = 1) [0m
+Rendering template within layouts/topics
+Rendering topics/show
+  [4;35;1mPerson Load (0.000194)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 3) [0m
+Completed in 0.01497 (66 reqs/sec) | Rendering: 0.00890 (59%) | DB: 0.00039 (2%) | 200 OK [http://localhost/topics/1]
+
+
+Processing TopicsController#index (for 127.0.0.1 at 2008-11-24 13:58:21) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNTdhMzQwMTFhNDhiMmIyZmJjYjY3YzFkZTEwYjMx
+ZGMiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7BjoLbm90aWNlIiRUb3BpYyB3YXMgc3VjY2Vzc2Z1bGx5IHVwZGF0ZWQu
+BjoKQHVzZWR7BjsHVA==--6a36f9622fa7d24ffca08d1c70e93d37fab4c60a
+  Parameters: {"action"=>"index", "controller"=>"topics"}
+  [4;36;1mTopic Load (0.000475)[0m   [0;1mSELECT * FROM "topics" [0m
+Rendering template within layouts/topics
+Rendering topics/index
+  [4;35;1mPerson Load (0.000176)[0m   [0mSELECT * FROM "people" WHERE ("people"."id" = 3) [0m
+Completed in 0.01156 (86 reqs/sec) | Rendering: 0.00633 (54%) | DB: 0.00065 (5%) | 200 OK [http://localhost/topics]
